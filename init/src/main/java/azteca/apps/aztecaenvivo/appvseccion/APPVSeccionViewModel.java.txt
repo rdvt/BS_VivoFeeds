@@ -1,0 +1,60 @@
+package azteca.apps.aztecaenvivo.appvcontenido;
+import azteca.apps.aztecaenvivo.appvimagen.APPVImagen;
+import azteca.apps.aztecaenvivo.appvcontenido.APPVContenido;
+
+import com.psddev.cms.view.JsonView;
+import com.psddev.cms.view.PageEntryView;
+import com.psddev.cms.view.ViewInterface;
+import com.psddev.cms.view.ViewModel;
+import com.psddev.cms.db.Content;
+import com.psddev.dari.db.Recordable;
+import com.psddev.dari.util.StorageItem;
+import java.util.*;
+ 
+
+@JsonView
+@ViewInterface
+public class APPVContenidoViewModel extends ViewModel<APPVContenido> implements PageEntryView {
+
+	public List<Dictionary> getDatos(){
+		List<Dictionary> dRet = new ArrayList<Dictionary>();
+		Dictionary dDta = new Hashtable(); 
+/*		ElementoInteraccion qj = model.getInteraccion();
+
+		if(qj != null){ 
+			String sTitle	 = qj.getTitle();
+			String sImageUrl = getImgUrl();
+			String sUrl		 = qj.getUrl();
+			Integer sTime	 = qj.getTime(); 
+			Integer iHabilita= qj.getHabilitaSonido();
+			  
+			if (sTitle == null) 
+				sTitle = "";
+			if (sImageUrl == null) 
+				sImageUrl = "";
+			if (sUrl == null) 
+				sUrl = ""; 
+		 
+			lista.put("title", sTitle); 
+			lista.put("image", sImageUrl); 
+			lista.put("url",   sUrl); 
+			lista.put("time",  sTime); 
+			lista.put("habilitaSonido", iHabilita);
+		 } */
+		 dRet.add(dDta);
+	
+	return dRet;
+	}  
+
+	private String getImgUrl(){
+		APPVImagen img = model.getImagen();
+		if (img != null) {
+			StorageItem file = img.getFile();
+			if (file != null) {
+				return file.getPublicUrl();
+			}
+		}
+
+		return null;
+	}
+}

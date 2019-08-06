@@ -7,7 +7,6 @@ import com.psddev.dari.util.*;
 import java.util.*;
 
 public class APPVContenido extends Content {
-
 	@ToolUi.Note("Con este nombre se puede buscar en el CMS este contenido")
 	@Required
 	private String nombre;
